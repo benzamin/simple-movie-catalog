@@ -3,6 +3,7 @@ IMDB style catalog for your DVD/Downloaded movies stored a hard-drive directory.
 
 Fixes and new features over the original
 > Fixed pulling imdb image failed.
+> Added executables 'make-catalog' for start making catalog and 'reset-as-fresh' to remove existing catalog for starting fresh.
 
 
 # ORIGINAL readme.txt
