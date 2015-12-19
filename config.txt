@@ -3,7 +3,5 @@
 # Empty lines and lines starting with # are ignored.
 
 # Specify directories to scan, 1 per line, example:
-# D:\Movies
-# E:\Movies
-
-
+/Users/Benzamin/Desktop/Movies/
+/Users/Benzamin/Desktop/Entertainment/Movies

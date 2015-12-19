@@ -1,0 +1,5 @@
+#!/bin/bash
+pwd
+BASEDIR=$(dirname $0)
+cd $BASEDIR
+perl ./moviecat.pl -c ./config.txt

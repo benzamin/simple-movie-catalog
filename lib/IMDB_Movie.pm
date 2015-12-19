@@ -82,11 +82,11 @@ sub new_html {
     }
     if ($newid) {
         # print STDERR "NEW ID: $newid ($id)\n";
-        $id = $newid; 
+        $id = $newid;
     }
     if ($newhtml) {
         # print STDERR "NEW HTML: $newhtml ($id)\n";
-        $html = $newhtml; 
+        $html = $newhtml;
     }
     # print STDERR "IMDB ID: $id\n";
 
@@ -151,7 +151,7 @@ sub _get
 
 sub to_string() {
     my $self = shift;
-    return sprintf("%s (%s) by %s", 
+    return sprintf("%s (%s) by %s",
         $self->{title},
         $self->{year},
         join(', ',@{$self->{director}}),
@@ -286,7 +286,7 @@ sub _title_year_search {
     # The Plan (Video 2009) - IMDb
     # Supernatural (TV Series 2005-�) - IMDb
     # LOL (Laughing Out Loud) � (2008) - IMDb
-    # IMDb - Crash (2004)  
+    # IMDb - Crash (2004)
 
     # title: everything till first ( that contains a year
     # but include ( if the title starts with it
@@ -400,10 +400,12 @@ sub _image {
     # old:
     # while ($tag = $parser->get_tag('a')) {
     # if ($tag->[1]->{name} =~ /poster/i) {
+    #print "image url found";
+    while ($tag = $parser->get_tag('div')) {
+        $tag->[1]->{class} ||= 'None';
+        my $id = $tag->[1]->{class};
+        if ($tag->[1]->{class} eq 'poster') {
 
-    while ($tag = $parser->get_tag('td')) {
-        $tag->[1]->{id} ||= '';
-        if ($tag->[1]->{id} =~ /img_primary/i) {
             $tag = $parser->get_tag('img');
             $image = $tag->[1]->{src};
             last;
@@ -470,7 +472,7 @@ sub _person {
 
         my $name = $parser->get_text;
         last if $name eq 'more';
-        
+
         my ($id) = $tag->[1]{href} =~ /(\d+)/;
         my ($f,$l) = split(' ',$name,2);
 
@@ -697,7 +699,7 @@ sub _storyline {
     return $plot;
 }
 
-sub _runtime_old {
+sub _runtime {
     # runtime from technical info section
     # new: h4 old: h5
     my $runstr = _get_info(shift, "runtime", "h4|h5", "/div") or return undef;
@@ -706,7 +708,7 @@ sub _runtime_old {
     return $runtime;
 }
 
-sub _runtime {
+sub _runtime_old {
     # runtime from below title ("infobar" class)
     # some movies don't have technical info, but have the runtime below title
     # so this is preferred method now
@@ -859,9 +861,9 @@ IMDB.pm will try to return the best match.
 
   my $movie = IMDB::Movie->new(92610);
   print join("|",
-    $movie->title, 
-    $movie->id, 
-    $movie->year, 
+    $movie->title,
+    $movie->id,
+    $movie->year,
     join(';',@{$movie->director}),
     join(';',@{$movie->writer}),
     join(';',@{$movie->genres}),
@@ -874,7 +876,7 @@ IMDB.pm will try to return the best match.
   # now more compatible with HTML::Template!
   $tmpl->param($movie->as_HTML_Template);
 
-=head1 METHODS 
+=head1 METHODS
 
 =over 4
 
@@ -1038,7 +1040,7 @@ or send mail to E<lt>bug-IMDB-Movie#rt.cpan.orgE<gt>
 a valid address ... and note that i won't respond to bugs
 sent to my personal address any longer)
 
-=head1 AUTHOR 
+=head1 AUTHOR
 
 Jeffrey Hayes Anderson
 
@@ -1067,7 +1069,7 @@ Also, screen-scraping a web site does not make for a long living
 application. Any changes to IMDB's design could potentially break
 this module. I give no garuantee that i will maintain this module,
 but i will garuantee that i may just delete this module with no
-notice. 
+notice.
 
 =head1 COPYRIGHT
 

@@ -89,6 +89,7 @@ my @codec = (@hidef, @tags_3d, qw(
 my @series_tag = ( 's\d{1,2}e\d{1,2}', 'season\W+\d+', 'episode\W+\d+', '\d+x\d+' );
 
 my @subsearch = (
+        "http://www.yifysubtitles.com/movie-imdb/tt%ID%",
         "http://opensubtitles.org/en/search2/sublanguageid-eng/moviename-%TITLE%",
         "http://subscene.com/filmsearch.aspx?q=%TITLE%",
         "http://podnapisi.net/ppodnapisi/search?tbsl=1&asdp=0&sJ=2&sY=&sAKA=1&sK=%TITLE%",
@@ -98,8 +99,8 @@ my @opt_links = (
         "Trailers=http://www.imdb.com/title/tt%ID%/trailers",
         "http://www.youtube.com/results?search_query=%TITLE%",
         "http://www.rottentomatoes.com/search/?search=%TITLE%",
-        # "http://www.google.com/search?q=%TITLE%",
-        # "http://en.wikipedia.org/wiki/Special:Search?search=%TITLE%",
+         "http://www.google.com/search?q=%TITLE%",
+         "http://en.wikipedia.org/wiki/Special:Search?search=%TITLE%",
         );
 
 my @opt_user; # list of users vote history urls
@@ -118,7 +119,7 @@ my $opt_xml = 0;        # xml export
 my $opt_js = 1;         # javascript sort & filter
 my $opt_aka = 0;        # search AKA titles
 my $opt_theme = 'white'; # default theme
-my $opt_otitle = 0;     # original title
+my $opt_otitle = 1;     # original title
 my $verbose = 1;
 my $columns = 80;
 
@@ -425,7 +426,7 @@ sub getmovie
         print_note " FAIL1";
         return undef;
     }
-    $m = IMDB::Movie->new_html($id, $html);
+$m = IMDB::Movie->new_html($id, $html);
     if (!$m) {
         print_log "*** Error: parse imdb $id\n";
         print_note " FAIL2";
@@ -1048,7 +1049,7 @@ sub html_head
     print_html "<head>";
     print_html "<title>$title</title>";
     print_html "<meta http-equiv=\"Content-Type\""
-        . " content=\"text/html; charset=iso-8859-1\">";
+        . " content=\"text/html; charset=utf-8\">";
     if ($opt_js) {
         print_html "<script src=\"$jsname\" type=\"text/javascript\"></script>";
     }
