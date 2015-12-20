@@ -1,16 +1,16 @@
 # simple-movie-catalog
 IMDB style catalog for your DVD/Downloaded movies stored a hard-drive directory. Forked from: http://smoviecat.sourceforge.net/
 
-Usage: 
-1. Edit the 'config.txt' file to add the movie folder link(s). Its better to have a movie folder names Moviename (year) formant, like 'Minions (2015)', 'Gone Girl (2014)' etc.
-2. Double click 'make-catalog'. Once done open report/movies.html for catalogged movies, and report/movies_missing_info.html for missing movie(s) info.
-3. If you want to delete current catalog, double click 'reset-as-fresh', then run 'make-catalog'.
-4. If you wish to replace some fixed text inside a file, say movies.html, use the 'find-N-replace' script. Open it with a text editor and edit the values FIND_TEXT, REPLACE_TEXT and FILE_NAME. Then save and double click. Can be used to change the file references as web links.
-5. If the script fails to find some movie, put the imdb link in a 'info.txt' file inside the movie folder.
+##Usage:
+- Edit the 'config.txt' file to add the movie folder link(s). Its better to have a movie folder names Moviename (year) formant, like 'Minions (2015)', 'Gone Girl (2014)' etc.
+- Double click 'make-catalog'. Once done open report/movies.html for catalogged movies, and report/movies_missing_info.html for missing movie(s) info.
+- If you want to delete current catalog, double click 'reset-as-fresh', then run 'make-catalog'.
+- If you wish to replace some fixed text inside a file, say movies.html, use the 'find-N-replace' script. Open it with a text editor and edit the values FIND_TEXT, REPLACE_TEXT and FILE_NAME. Then save and double click. Can be used to change the file references as web links.
+- If the script fails to find some movie, put the imdb link in a 'info.txt' file inside the movie folder.
 
-Fixes and new features over the original
-> Fixed pulling imdb image failed.
-> Added executables 'make-catalog' for start making catalog and 'reset-as-fresh' to remove existing catalog for starting fresh.
+##Fixes and new features over the original
+- Fixed pulling imdb image failed.
+- Added executables 'make-catalog' for start making catalog and 'reset-as-fresh' to remove existing catalog for starting fresh.
 
 
 # ORIGINAL readme.txt
