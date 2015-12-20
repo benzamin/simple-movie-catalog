@@ -1,0 +1,23 @@
+set -e
+
+FIND_TEXT='file:\/\/\/Users\/benzamin\/Desktop\/Movies'
+REPLACE_TEXT='http:\/\/192.168.2.9:8000\/Movies'
+FILE_NAME='./report/movies.html'
+
+if [ "$1" != "" ]; then
+    FIND_TEXT=$1
+fi
+if [ "$2" != "" ]; then
+    REPLACE_TEXT=$2
+fi
+if [ "$3" != "" ]; then
+    FILE_NAME=$3
+fi
+
+
+#sed -i.bak "s/WSDTCollectionManager/$TARGET_NAME/g" $TARGET_NAME/$TARGET_NAME.h
+sed -i.bak "s/$FIND_TEXT/$REPLACE_TEXT/g" $FILE_NAME
+
+DIRECTORY_NAME=$(dirname "$FILE_NAME")
+#echo $DIRECTORY_NAME
+rm $DIRECTORY_NAME//*".bak"
