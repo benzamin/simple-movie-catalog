@@ -1,12 +1,20 @@
 # simple-movie-catalog
 IMDB style catalog for your DVD/Downloaded movies stored a hard-drive directory. Forked from: http://smoviecat.sourceforge.net/
 
-##Usage:
+##Usage(Mac/UNIX):
 - Edit the 'config.txt' file to add the movie folder link(s). Its better to have a movie folder names Moviename (year) formant, like 'Minions (2015)', 'Gone Girl (2014)' etc.
 - Double click 'make-catalog'. Once done open report/movies.html for catalogged movies, and report/movies_missing_info.html for missing movie(s) info.
 - If you want to delete current catalog, double click 'reset-as-fresh', then run 'make-catalog'.
+- Open the report/Movies.html. For missing movies, check report/movies_missing_info.html.
 - If you wish to replace some fixed text inside a file, say movies.html, use the 'find-N-replace' script. Open it with a text editor and edit the values FIND_TEXT, REPLACE_TEXT and FILE_NAME. Then save and double click. Can be used to change the file references as web links.
 - If the script fails to find some movie, put the imdb link in a 'info.txt' file inside the movie folder.
+
+##Usage(Windows)
+- Install perl and add it as an "Environment variable" in your windows.
+- Edit 'config.txt' and add movie folder paths (like E:\Movies).
+- run catalog-movie.bat.
+- Open the report/Movies.html. For missing movies, check report/movies_missing_info.html.
+- If you want to replace anything in the report/movies.html, edit the find-N-replace.bat and edit the 'search' and 'replace' variables.
 
 ##Fixes and new features over the original
 - Fixed pulling imdb image failed.
