@@ -1,0 +1,43 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+function redirect(url){
+    window.location = url;
+}
+function UrlExists(url)
+{
+  var xhr = new XMLHttpRequest();
+  xhr.open('HEAD', url, false);
+  xhr.send();
+
+  if (xhr.status == "404") {
+      return false;
+  } else {
+      return true;
+  }
+}
+
+function checkNredirect(){
+  console.log('here');
+    var moviePageURL = "./report/movies.html";
+  //  if(UrlExists(moviePageURL)){
+     redirect(moviePageURL);
+  //  }
+  //  else {
+  //    document.getElementById("status").innerHTML = "Movie listing not found. Edit 'config.txt' for adding movie folder location(s) then run 'make-catalog'.\n\n Note:If you did catalog before but wanna start fresh first run 'reset-as-fresh' then run 'make-catalog'";
+  //  }
+}
+
+
+
+
+//-->
+</script>
+</head>
+<body onLoad="checkNredirect()">
+<h2>Widespace Movie Database</h2>
+<p id="status">If you are seeing this, that means movie listing not found. Edit 'config.txt' for adding movie folder location(s) then run 'make-catalog'.\n\n Note:If you did catalog before but wanna start fresh first run 'reset-as-fresh' then run 'make-catalog'</p>
+
+</body>
+</html>
