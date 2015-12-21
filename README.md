@@ -12,9 +12,10 @@ IMDB style catalog for your DVD/Downloaded movies stored a hard-drive directory.
 ##Usage(Windows)
 - Install perl and add it as an "Environment variable" in your windows.
 - Edit 'config.txt' and add movie folder paths (like E:\Movies).
-- run catalog-movie.bat.
+- run make-catalog.bat.
 - Open the report/Movies.html. For missing movies, check report/movies_missing_info.html.
-- If you want to replace anything in the report/movies.html, edit the find-N-replace.bat and edit the 'search' and 'replace' variables.
+- If you want to replace anything in the report/movies.html, edit the 'find-N-replace.bat' and edit the 'search' and 'replace' variables.
+- You can reset all the catalog for a fresh start by double clicking the 'reset-as-fresh.bat'
 
 ##Fixes and new features over the original
 - Fixed pulling imdb image failed.
