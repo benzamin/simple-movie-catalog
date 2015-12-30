@@ -3,4 +3,4 @@ pwd
 BASEDIR=$(dirname $0)
 cd $BASEDIR
 perl ./moviecat.pl -c ./config.txt
-sh find-N-replace
+#sh find-N-replace
