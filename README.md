@@ -1,9 +1,10 @@
 # simple-movie-catalog
-IMDB style catalog for your DVD/Downloaded movies stored a hard-drive directory. Forked from: http://smoviecat.sourceforge.net/
+IMDB style catalog for your personal DVD/Downloaded movies stored a hard-drive directory. Done for personal need, should work out of the box but a hacky mind can always be helpful. Forked from: http://smoviecat.sourceforge.net/
 
 ##Usage(Mac/UNIX):
 - Edit the 'config.txt' file to add the movie folder link(s). Its better to have a movie folder names Moviename (year) formant, like 'Minions (2015)', 'Gone Girl (2014)' etc.
-- Double click 'make-catalog'. Once done open report/movies.html for catalogged movies, and report/movies_missing_info.html for missing movie(s) info.
+- Double click 'make-catalog', may take some time based on how much movies in the folder. 
+- Once done open report/movies.html for catalogged movies, and report/movies_missing_info.html for missing movie(s) info.
 - If you want to delete current catalog, double click 'reset-as-fresh', then run 'make-catalog'.
 - Open the report/Movies.html. For missing movies, check report/movies_missing_info.html.
 - If you wish to replace some fixed text inside a file, say movies.html, use the 'find-N-replace' script. Open it with a text editor and edit the values FIND_TEXT, REPLACE_TEXT and FILE_NAME. Then save and double click. Can be used to change the file references as web links.
@@ -11,14 +12,15 @@ IMDB style catalog for your DVD/Downloaded movies stored a hard-drive directory.
 
 ##Usage(Windows)
 - Install perl and add it as an "Environment variable" in your windows.
-- Edit 'config.txt' and add movie folder paths (like E:\Movies).
-- run make-catalog.bat.
-- Open the report/Movies.html. For missing movies, check report/movies_missing_info.html.
+- Edit 'config.txt' and add movie folder paths (like E:\Movies). Its better to have a movie folder names in this format " Moviename (year)", like 'Minions (2015)', 'Gone Girl (2014)' etc.
+- run make-catalog.bat, may take some time based on how much movies in the folder.
+- Open the report/Movies.html for detailed catalog. For missing movies, check report/movies_missing_info.html.
 - If you want to replace anything in the report/movies.html, edit the 'find-N-replace.bat' and edit the 'search' and 'replace' variables.
 - You can reset all the catalog for a fresh start by double clicking the 'reset-as-fresh.bat'
 
 ##Fixes and new features over the original
-- Fixed pulling imdb image failed.
+- Added searching for movies based on Name/Plot/Year/Genre.
+- Fixed pulling imdb image failed and year/rating/runtime range search.
 - Added executables 'make-catalog' for start making catalog and 'reset-as-fresh' to remove existing catalog for starting fresh.
 - Made 'find-N-replace' executable for changing a specific text/link so that it can be configured for Local server/web-server as well.
 - Made executables for Windows as well.
