@@ -1441,7 +1441,7 @@ sub page_start
     html_head("Movie Catalog" . ($gname ? ": $gname" : ""));
 
     print_html
-        '<form style="position: absolute; top: 2pt; right: 2pt;" name="ThemeForm">'.
+        '<form style="position: absolute; top: 0pt; right: 15pt;" name="ThemeForm">'.
         'Theme:'.
         '<select name="ThemeList" size="1" onChange="switchTheme(this.form)">';
     for my $tfile (glob "$prog_dir/lib/*.css") {
@@ -1599,10 +1599,10 @@ sub page_filter
     my ($minyear, $maxyear) = get_max_year();
     my ($minrun, $maxrun) = get_max_runtime();
     my $i = 0;
-    print_html "<span id=FILTER_HEAD>Filter: <small>";
+    print_html "<span id=FILTER_HEAD style='position: absolute; top: 0pt; right: 100pt;'>Search:<input type=text maxlength=30 size=20 onchange='do_filter();' id=SEARCH placeholder='Name/Plot/Genre/Year' value=''> <small>";
     print_html "<i id=STATUS>", scalar keys %{$pmlist},
                " Movies</i> ";
-    print_html "&nbsp; <a href=javascript:filter_reset()>reset</a>";
+    print_html "&nbsp; <a href=javascript:filter_reset()><font color='blue'>Reset</font></a>";
     print_html "&nbsp; <a id=SHOW_FILTER1 href=javascript:show_filter(1)>",
                "show tags</a>";
     print_html "&nbsp; <a id=SHOW_FILTER2 href=javascript:show_filter(2)>",
