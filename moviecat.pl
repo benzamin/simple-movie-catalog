@@ -1598,11 +1598,12 @@ sub page_filter
     my @genres = sort by_alpha get_all_genres;
     my ($minyear, $maxyear) = get_max_year();
     my ($minrun, $maxrun) = get_max_runtime();
-    my $i = 0;
+    my $i = 0;    
     print_html "<span id=FILTER_HEAD style='position: absolute; top: 0pt; right: 100pt;'>Search:<input type=text maxlength=30 size=20 onchange='do_filter();' id=SEARCH placeholder='Name/Plot/Genre/Year' value=''> <small>";
     print_html "<i id=STATUS>", scalar keys %{$pmlist},
                " Movies</i> ";
     print_html "&nbsp; <a href=javascript:filter_reset()><font color='blue'>Reset</font></a>";
+    print_html "&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; <a target=_blank href='../movierequest/index.php'><font color='red'><b>Movie Request</b></font></a>";
     print_html "&nbsp; <a id=SHOW_FILTER1 href=javascript:show_filter(1)>",
                "show tags</a>";
     print_html "&nbsp; <a id=SHOW_FILTER2 href=javascript:show_filter(2)>",
