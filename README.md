@@ -9,6 +9,7 @@ IMDB style catalog for your personal DVD/Downloaded movies stored a hard-drive d
 - Open the report/Movies.html. For missing movies, check report/movies_missing_info.html.
 - If you wish to replace some fixed text inside a file, say movies.html, use the 'find-N-replace' script. Open it with a text editor and edit the values FIND_TEXT, REPLACE_TEXT and FILE_NAME. Then save and double click. Can be used to change the file references as web links.
 - If the script fails to find some movie, put the imdb link in a 'info.txt' file inside the movie folder.
+- Optional: For the movie-request feature, you need to install a php-mysql system, like XAMPP or Apache. Keep the whole project in the 'htdocs' folder of XAMPP or Apache. Make a new DataBase from mysql control panel(normally http://localhost/phpMyAdmin) and create a 'requests' table in it using movierequest/SQL/db.sql file. Then add your database name/username/password/host in the dbConfig.php file. Now you should be able to run the movierequest/index.php file and add new movie request from the button in the left.
 
 ##Usage(Windows)
 - Install perl and add it as an "Environment variable" in your windows.
@@ -17,6 +18,7 @@ IMDB style catalog for your personal DVD/Downloaded movies stored a hard-drive d
 - Once the black CMD window is done, waiting for some keypress, do it! Open the report/Movies.html for detailed catalog. For missing movies, check report/movies_missing_info.html.
 - If you want to replace anything in the report/movies.html, edit the 'find-N-replace.bat' and edit the 'search' and 'replace' variables.
 - You can reset all the catalog for a fresh start by double clicking the 'reset-as-fresh.bat'
+- Optional: For the movie-request feature, you need to install a php-mysql system, like MAMP. Keep the whole project in the 'htdocs' folder of MAMP. Make a new DataBase from mysql control panel(normally http://localhost/phpMyAdmin) and create a 'requests' table in it using movierequest/SQL/db.sql file. Then add your database name/username/password/host in the dbConfig.php file. Now you should be able to run the movierequest/index.php file and add new movie request from the button in the left.
 
 ##Fixes and new features over the original
 - Added searching for movies based on Name/Plot/Year/Genre.
@@ -24,6 +26,7 @@ IMDB style catalog for your personal DVD/Downloaded movies stored a hard-drive d
 - Added executables 'make-catalog' for start making catalog and 'reset-as-fresh' to remove existing catalog for starting fresh.
 - Made 'find-N-replace' executable for changing a specific text/link so that it can be configured for Local server/web-server as well.
 - Made executables for Windows as well.
+- Added optional 'Request movie' feature.
 
 
 # ORIGINAL readme.txt
