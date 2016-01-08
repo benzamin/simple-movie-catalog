@@ -1,4 +1,8 @@
 <?php
+@ob_start();
+session_start();
+
+$is_admin = isset($_POST['type']) && $_POST['type'] =='admin' &&  isset($_SESSION['myusername']);
 
 require_once("dbConfig.php");
 
@@ -13,7 +17,12 @@ $result = mysqli_query($link,$sql);
 
 echo "<table id='requestsTable' class='tg'>";
   echo "<tr>";
-    echo "<th class='tg-baqh' colspan='7'>Movie Request List<br></th>";
+if($is_admin){
+    echo "<th class='tg-baqh' colspan='9'><h4>Movie Request List &nbsp;&nbsp;|&nbsp;&nbsp; Logged in as: ".$_SESSION["myusername"]." &nbsp;&nbsp;|&nbsp;&nbsp; <a href='logout.php'>Logout</a></h4></th>";
+  }
+  else {
+    echo "<th class='tg-baqh' colspan='7'>Movie Request List&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href='./admin/index.php'>Login</a><br></th>";
+  }
   echo "</tr>";
   echo "<tr>";
     echo "<td class='tg-rmb8'>User</td>";
@@ -23,6 +32,10 @@ echo "<table id='requestsTable' class='tg'>";
     echo "<td class='tg-rmb8'>Message</td>";
     echo "<td class='tg-rmb8'>Date</td>";
     echo "<td class='tg-rmb8'>Status</td>";
+    if($is_admin){
+        echo "<td class='tg-rmb8'>Toggle</td>";
+        echo "<td class='tg-rmb8'>Delete</td>";
+      }
   echo "</tr>";
 
 
@@ -37,6 +50,12 @@ echo "<table id='requestsTable' class='tg'>";
       echo "<td class='tg-yw4l'>" . $row["createdtime"] . "</td>";
       if($isUploaded == 0) echo "<td class='tg-red'>Pending<br></td>";
       else                echo "<td class='tg-green'>Uploaded<br></td>";
+      if($is_admin){
+        //echo "<td class='tg-yw4l'><a href='edit.php?id=".$row['Id']."'>&#9998</a></td>";
+        //echo "<td class='tg-yw4l'><a href='delete.php?id=".$row['Id']."'>&#10008</a></td>";
+        echo "<td><a href ='#' class='linkedit' rel='" .$row['Id'] . "' val='".$row["status"]."'>&#9998</a></td>";
+        echo "<td><a href ='#' class='linkdelete' rel='" .$row['Id'] . "'>&#10008</a></td>";
+      }
       echo "</tr>";
   }
 

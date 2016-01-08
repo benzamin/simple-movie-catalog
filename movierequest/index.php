@@ -70,7 +70,7 @@ $(document).ready(function(){
 
             //Ajax post data to server
             var output='';
-            $.post('save.php', post_data, function(response){
+            $.post('save.php', post_data, function(response, status){
                 if(response !== 1){ //load json data from server and output message
                     output = '<div class="error">Oops! Some error occured.</div>';
                     //alert('Error:'+response);
@@ -100,17 +100,14 @@ $(document).ready(function(){
 });
 
 function populateTable() {
-  var tableContent = '';
+  $.post('./get.php', {'type': 'user'}, function(response, status){
+      if(response == -1){ //load json data from server and output message
+          alert('Error:'+response);
+      }else{ //success
+        console.log( "success");
+        $('#requestsTable').html(response);
+      }
 
-  //jQuery AJAX call
-    $.ajax({
-    type: "GET",
-    url: 'get.php',
-    data: '',
-    success: function(data){
-      //inject the whole table content string into our existing HTML div
-      $('#requestsTable').html(data);
-    }
   });
 
 }
